@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Acesso Restrito</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #222; }
+        .login-box { background: white; padding: 30px; border-radius: 10px; text-align: center; width: 300px; }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #218838; }
+        #erro { color: red; font-size: 13px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="login-box">
+    <h2>Entrar</h2>
+    <input type="text" id="user" placeholder="Usuário">
+    <input type="password" id="pass" placeholder="Senha">
+    <button onclick="validar()">Acessar Site</button>
+    <p id="erro"></p>
+</div>
+
+<script>
+    function validar() {
+        const usuarioDigitado = document.getElementById('user').value;
+        const senhaDigitada = document.getElementById('pass').value;
+        const erro = document.getElementById('erro');
+
+        // --- DEFINA AQUI O SEU ACESSO ---
+        const USUARIO_CORRETO = "admin";
+        const SENHA_CORRETA = "12345";
+        const LINK_DO_SITE = "http://localhost:8158/site do meu serv privado.html"; // Cole aqui o link do seu site
+        // -------------------------------
+
+        if (usuarioDigitado === USUARIO_CORRETO && senhaDigitada === SENHA_CORRETA) {
+            window.location.href = LINK_DO_SITE; // Abre o site
+        } else {
+            erro.innerText = "Usuário ou senha incorretos!";
+        }
+    }
+</script>
+
+</body>
+</html>
